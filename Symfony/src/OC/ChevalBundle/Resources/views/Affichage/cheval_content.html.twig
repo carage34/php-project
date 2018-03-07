@@ -1,0 +1,72 @@
+
+
+            
+ {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+ {% endif %}
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 offset-md-3">
+        </div>
+        <div class="col-md-6 article">
+                        {% if cheval.pictureName %}
+        <div>
+    <img style="float: right;" src="{{ asset('uploads/pictures/'~ cheval.pictureName) }}"
+         style="width:100px; height:100px;" width="100" height="100">
+        </div>
+    {% else %}
+        <div style="float: right;">
+        Pas de photo de profil
+        </div>
+    {% endif %}
+            <h4 style="text-align: center;"><b>Nom : </b>{{ cheval.nom }} </h4>
+            <ul>
+                <li><b>Race :</b> {{ cheval.race }}</li>
+                <li><b>Date de naissance : </b>{{cheval.dateDeNaissance|localizeddate('medium', 'none')}}</li>
+                <li><b>Robe : </b>{{ cheval.robe }}</li>
+                <li><b>Sexe : </b>{{ cheval.sexe }}</li>
+                <li><b>Père : </b>{{ cheval.pere }}</li>
+                <li><b>Mère : </b>{{ cheval.mere }}</li>
+            </ul>
+
+            <h4>Description</h4>
+            <p>{{ cheval.description }}</p>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{path('oc_cheval_mod', {'id': cheval.id})}}"><button class="btn btn-primary">Modifier</button></a>
+            {% endif %}
+            <hr style="border-color: black;"></hr>
+            <h3>Suivi des soins</h3>
+            {% for soin in soins %}
+            <b>Type: </b><p>{{ soin.type }}</p>
+            <b>Date : </b><p>{{soin.date|localizeddate('medium', 'none')}}</p>
+            {% if is_granted('ROLE_ADMIN') %}
+            <div><a href="{{ path('oc_cheval_sup_soin', {'id': soin.id}) }}"><button class="btn btn-danger">Supprimer</button></a></div>
+            {% endif %}
+            {% if loop.last %}
+            {% else %}
+            <hr style="border-color: black;"></hr>
+            {% endif %}
+            {% endfor %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <hr style="border-color: black;"></hr>
+            <h3>Ajouter un soin</h3>
+    
+            {{form_start(form)}}
+            <tr>
+                <td>Date {{ form_widget(form.date) }}</td>
+                <td>Type {{ form_widget(form.type) }}</td>
+                <td>{{ form_row(form.ajouter) }}</td>
+            </tr>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        {% endif %}
+            
+     </div>
+ </div>
+ </div>

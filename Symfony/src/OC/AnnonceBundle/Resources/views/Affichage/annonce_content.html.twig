@@ -1,0 +1,51 @@
+{% trans_default_domain 'OCAnnonceBundle' %}
+
+<body>
+ {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    <h1 style="text-align: center;font-size: 45px;">Liste des annonces</h1>
+    <div class="row">
+     <div class="container-fluid">
+        <div class="col-md-3 offset-md-1">
+        </div>
+        <div class="col-md-1">
+            {% if is_granted('ROLE_ADMIN') %}
+     <a href="{{ path('oc_annonce_add') }}"><button class="btn btn-primary">Ajouter une annonce</button></a>
+     {% endif %}
+     </div>
+ </div>
+    </div>
+        <div class="row">
+        <div class="col-md-3 offset-md-3">
+
+        </div>
+
+        <div class="col-md-6 article">
+             {% for annonce in listeAnnonce %}
+                <b>Sujet : </b><p>{{ annonce.sujet }}</p>
+                <b>Auteur :</b> <p>{{ annonce.auteur }}</p>
+                <b>Date :</b> <p>{{ annonce.date| localizeddate('long', 'short')}}</p>
+                <b>Message :</b> <p>{{ annonce.message }}</p>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('oc_annonce_sup', {'id': annonce.id}) }}"><button class="btn btn-danger">
+                Supprimer
+            </button></a>
+                    
+            {% endif %}
+            {% if loop.last %}
+            {% else %}
+            <hr style="border-color: black;"></hr>
+            {% endif %}
+             {% endfor %}
+            
+            
+
+        </div>
+    </div>
+</body>

@@ -1,0 +1,107 @@
+  <style>
+.item {
+  width: 265px;
+  height: 400px;
+}
+section.awSlider .carousel{
+  display:table;
+  z-index:0;
+  -moz-box-shadow: 0 0 4px #444;
+  -webkit-box-shadow: 0 0 4px #444;
+  box-shadow: 0 0 15px rgba(1,1,1,.5);
+}
+
+section.awSlider{
+  margin:30px auto;
+  padding:30px;
+  position:relative;
+  display:table;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+section.awSlider img{
+   pointer-events: none;
+}
+
+section.awSlider > img{
+  position:absolute;
+  top:30px;
+  z-index:1;
+  transition:all .3s;
+
+  opacity:0;
+}
+  </style>
+
+<body>
+		<h1 style="text-align: center; font-size: 45px;">Installation</h1>
+		<div class="row">
+		<div class="col-md-3 offset-md-3">
+
+		</div>
+
+		<div class="col-md-6 article">
+			<h4>Le centre équestre du Domaine de Barbeau est doté</h4><br/>
+			<ul>
+				<li>d’une écurie couverte de 27 boxes</li>
+				<li>d’une écurie extérieur de 10 boxes poneys et 6 boxes shetlands</li>
+				<li>une carrière en sable de 40x60m</li>
+				<li>une carrière mi-sable, mi-herbe de 50x80m</li>
+				<li>un manège de 20x30m</li>
+				<li>un rond de longe</li>
+				<li>deux selleries dont une avec casier personnel</li>
+				<li>un grand pré</li>
+				<li>7 paddocks</li>
+			</ul>
+		</div>
+	</div>
+	<hr></hr>
+      <div class="col-md-12">
+<section class="awSlider">
+  <div  class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target=".carousel" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel" data-slide-to="1"></li>
+      <li data-target=".carousel" data-slide-to="2"></li>
+      <li data-target=".carousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ asset('bundles/accueil/i1.jpg') }}" width="265" height="400">
+        <div class="carousel-caption">Görsel #1</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/i2.jpg') }}" width="265" height="400">
+        <div class="carousel-caption">Görsel #2</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/i3.jpg') }}" width="265" height="400">
+        <div class="carousel-caption">Görsel #3</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/i4.jpg') }}" width="265" height="400">
+        <div class="carousel-caption">Görsel #4</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Geri</span>
+    </a>
+    <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">İleri</span>
+    </a>
+  </div>
+</section>
+      </div>
+</body>

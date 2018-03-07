@@ -1,0 +1,35 @@
+  <body>
+  {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+<h1 style="text-align: center; font-size: 45px;">Liste Chevaux</h1>
+{% if is_granted('ROLE_ADMIN') %}
+  <div style="margin-left: 25%;"><a href="{{ path('oc_cheval_add') }}"><button class="btn btn-primary">Ajouter un cheval</button></a></div>
+{% endif %}
+
+    
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 offset-md-3">
+        </div>
+        <div class="col-md-6 article">
+            {% for cheval in chevaux %}
+            <h4 style="text-align: center;"><b>Nom : </b>{{ cheval.nom }} </h4>
+            <ul>
+                <li><b>Race :</b> {{ cheval.race }}</li>
+                <li><b>Propriétaire :</b> {{ cheval.proprietaire }}</li>
+            </ul>
+            <a href="{{ path('oc_cheval_fiche', {'id': cheval.id} ) }}"><button class="btn btn-primary">Voir la fiche complète</button></a>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('oc_cheval_sup', {'id': cheval.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
+            {% endif %}
+            {% endfor %}
+     </div>
+ </div>
+ </div>
+</body>
+

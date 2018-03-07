@@ -1,0 +1,62 @@
+<body>
+{% if app.session.flashBag.has('message') %}
+      <div class="alert alert-success">
+          {% for msg in app.session.flashBag.get('message') %}
+                {{ msg }}
+            {% endfor %}
+      </div>
+  {% endif %}
+  
+  
+  {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h1 style="text-align: center;font-size: 40px;">La page d'évènement</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div style="margin-left: 25%;"><a href="{{ path('oc_evenement_add') }}"><button class="btn btn-primary">Ajouter un évènement</button></a></div>
+    {% endif %}
+    <div class="container-fluid">
+    <div class="row">
+                <div class="col-md-3 offset-md-3">
+        </div>
+        <div class="col-md-6 article">
+        
+        {% if is_granted('ROLE_ADMIN') %}
+        
+        <a href="{{path('oc_evenement_afficher') }}"><button class="btn btn-primary">Afficher tous les évènements</button></a>
+        {% endif %}
+
+<div>
+        {{ form_start(formulaire, { 'attr': {'class': 'navbar-form navbar-left'} }) }}
+            <div class="form-group">
+                {{ form_widget(formulaire.search, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_widget(formulaire.send, { 'attr': {'class': 'btn btn-default'} }) }}
+            </div>
+ 
+        {{ form_rest(formulaire) }}
+        {{ form_end(formulaire) }}
+</div><br></br>
+<div>
+            {% for evenement in listeEvenement %}
+            <h4 style="text-align: center"><b>Nom : </b>{{ evenement.type }}</h4>
+            <p><b>Date : </b>{{ evenement.date|localizeddate('medium', 'none') }}</p>
+            <h4>Description</h4>
+            <p>{{ evenement.description }}</p>
+            <a href="{{ path('oc_evenement_participation', {'id':evenement.id, 'choix':'participant'}) }}"><button class="btn btn-primary">Participer</button></a>
+            <a href="{{ path('oc_evenement_participation', {'id':evenement.id, 'choix':'nonparticipant'}) }}"><button class="btn btn-primary">Ne pas participer</button></a>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('oc_evenement_affparticipants', {'id': evenement.id}) }}"><button class="btn  btn-primary">Afficher participants</button></a>
+            <a href="{{ path('oc_evenement_sup', {'id': evenement.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
+            {% endif %}
+            {% endfor %}
+</div>
+        </div>
+    </div>
+</div>
+  
+</body>

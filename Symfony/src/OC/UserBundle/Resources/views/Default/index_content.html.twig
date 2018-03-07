@@ -1,0 +1,138 @@
+  
+
+  <style>
+.item {
+  width: 850;
+  height: 450px;
+}
+section.awSlider .carousel{
+  display:table;
+  z-index:0;
+  -moz-box-shadow: 0 0 4px #444;
+  -webkit-box-shadow: 0 0 4px #444;
+  box-shadow: 0 0 15px rgba(1,1,1,.5);
+}
+
+section.awSlider{
+  margin:30px auto;
+  padding:30px;
+  position:relative;
+  display:table;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+section.awSlider img{
+   pointer-events: none;
+}
+
+section.awSlider > img{
+  position:absolute;
+  top:30px;
+  z-index:1;
+  transition:all .3s;
+
+  opacity:0;
+}
+  </style>
+
+<body>  
+</div>
+
+<div class="container-fluid">
+<h1 style="font-size: 45px;">Domaine de barbeau</h1>
+   <div class="row">
+    <div class="col-md-3">
+      <img style="height: 270px; width: 320px; margin-top: 6%;" src="{{ asset('bundles/accueil/welcome.jpg') }}">
+    </div>
+      <div class="col-md-9 article">
+        <h1 style="text-align: center">A propos de l'écurie</h1><br/><br/>
+        <p>Le Centre Équestre du Domaine de Barbeau accueille cavaliers et chevaux sur un domaine clos de 5 hectares situé à Héricy, entre Fontainebleau et Melun.
+La principale discipline du centre équestre est le hunter. Le hunter consiste à enchaîner un parcours d’obstacles avec la plus grande harmonie possible
+</p>
+      </div>
+      <div class="col-md-12">
+<section class="awSlider">
+  <div  class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target=".carousel" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel" data-slide-to="1"></li>
+      <li data-target=".carousel" data-slide-to="2"></li>
+      <li data-target=".carousel" data-slide-to="3"></li>
+      <li data-target=".carousel" data-slide-to="4"></li>
+      <li data-target=".carousel" data-slide-to="5"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ asset('bundles/accueil/1.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">Crapette</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/2.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">La traditionnelle Fête du Club</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/3.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">Les poules de Barbeau</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/4.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">Lise Lenoir en coaching concours</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/5.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">Loukoum</div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('bundles/accueil/6.jpg') }}" width="850" height="450">
+        <div class="carousel-caption">Même Pas Cap, la mascotte de Barbeau</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Geri</span>
+    </a>
+    <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">İleri</span>
+    </a>
+  </div>
+</section>
+      </div>
+      <div class="col-md-12 article">
+        <h1>L'équipe</h1>
+        <img style="margin:2%; float: left;" src="{{ asset('bundles/accueil/Lise.jpg') }}" height="300" width="300">
+        <p>Lise Lenoir est la directrice du centre équestre mais également monitrice. 
+Lise a repris le club en 2003 succédant à Bénédicte Barberot, ancienne directrice. Lise développe le centre petit à petit et améliore les installations du club comme le manège ou le rond de longe.
+En 2012, avec son fidèle cheval Igor Lawrence, elle devient Championne de France en Hunter Equitation.
+
+Ici, sur la photo, Lise Lenoir et son deuxième cheval, Poussy de l’Oraille.
+</p>
+ <img style="margin:2%; float: right;" src="{{ asset('bundles/accueil/Laury.jpg') }}" height="300" width="300"> 
+<br/><br/><br/><br/>
+<p>Laury Sauvé est la deuxième monitrice du centre équestre.
+Ancienne cavalière de Barbeau qui apportait son aide tous les étés pour sortir les chevaux depuis 2013, elle décide d’en faire son métier en faisant une formation BPJEPS (brevet professionnel de la jeunesse, de l'éducation populaire et du sport) de septembre 2016 à juin 2017.
+Après avoir validé sa formation, elle devient, par la suite, monitrice. 
+</p>
+      </div>
+    </div>
+</div>
+<script type="text/javascript">
+  $('section.awSlider .carousel').carousel({
+  pause: "hover",
+  interval: 2000
+});
+
+var startImage = $('section.awSlider .item.active > img').attr('src');
+$('section.awSlider').append('<img src="' + startImage + '">');
+</script>
+</body>

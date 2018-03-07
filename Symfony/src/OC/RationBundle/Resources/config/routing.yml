@@ -1,0 +1,11 @@
+oc_ration_homepage:
+    path:     /ration
+    defaults: { _controller: OCRationBundle:Default:index }
+
+oc_ration_insert:
+    path:     /ration/insert
+    defaults: { _controller: OCRationBundle:Insert:index }
+    requirements:
+        methods:   "[GET]"
+    options:
+        expose:   true

@@ -1,0 +1,72 @@
+<html>  
+<head>
+  <meta charset="utf-8"  name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  	<link rel="stylesheet" href="{{ asset('style/css/style6.css') }}"/>
+  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Bienvenue sur ma première page avec OpenClassrooms !</title>
+  </head>
+  
+
+    <header id="head">
+
+  	<nav>
+  		<ul class="topnav" id="myTopnav">
+  			<li><a href="{{path('oc_user_homepage')}}">Domaine de Barbeau</a></li>
+        <li><a href="{{path('oc_user_installation')}}">Installations</a></li>
+        <li><a href="{{path('oc_user_tarif')}}">Tarifs</a></li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li><a href="{{path('oc_cours_homepage')}}">Cours</a></li>
+                        <li><a href="{{path('oc_annonce_afficher')}}">Annonce</a></li>
+                        <li><a href="{{path('oc_cheval_afficher')}}">Cheval</a></li>
+                        <li><a href="{{path('fos_user_profile_show')}}">Cavalier</a></li>
+                        <li><a href="{{path('oc_evenement_afficher')}}">Evènement</a> </li>
+                        <li><a href="{{path('oc_ration_homepage')}}">Ration</a> </li>
+                        {% else %}
+                        <li><a href="{{path('fos_user_registration_register')}}">Inscription</a></li>
+                        {% endif %}
+
+  			
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+{% else %}
+    <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+{% endif %}
+<li class="icon" id="icon"> <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>
+
+               
+  		</ul>
+  	</nav>
+  </header>
+<br><br><br>
+    <div>
+            {% block body %}
+            {% endblock body %}
+    </div>
+
+</html>
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+    <script type="text/javascript">
+      function myFunction() {
+    var x = document.getElementById("myTopnav");
+    var y = document.getElementById("head");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+        y.style.height='175px';
+
+    } else {
+        x.className = "topnav";
+        y.style.height='70px';
+    }
+}
+</script>

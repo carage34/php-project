@@ -1,0 +1,25 @@
+<body>
+<h1 style="text-align: center;font-size: 40px;">
+Participants à l'évènement {{ evenement.type }} du {{ evenement.date|localizeddate('medium', 'none') }}
+</h1>
+
+
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 offset-md-3">
+        </div>
+        <div class="col-md-6 article">
+
+        <ul>
+        {% for participant in evenement.participants %}
+        
+        <li><a href="{{path('oc_user_cavalier', {'id':  participant.id})}}">{{  participant.nom }}  {{  participant.prenom }}</a></li>
+
+        {% endfor %}
+        </ul>
+        </div>
+    </div>
+ </div>
+    
+
+</body>

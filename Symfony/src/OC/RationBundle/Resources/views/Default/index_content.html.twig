@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ration</title>
+    <script src="{{ asset('bundles/ocration/js/nouriture8.js') }}"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body>
+
+<div>
+	<br/>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 offset-md-3">
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-primary" type="button" value="modifier" id="modifier">Modifier</button>
+<button class="btn btn-primary display" type="button" value="sauver" id ="sauver">Sauvegarder</button>
+<button class="btn btn-primary" type="button" value="imprimer" id="imprimer" onclick="Imprimer()">Imprimer</button>
+				<div class="article" id="table">
+				<table id="table" class="table">
+					<tr>
+						<th>Nom</th>
+						<th>Matin</th> 
+						<th>Midi</th>
+						<th>Soir</th>
+					</tr>
+					{% for ration in rations %}
+					<tr>
+						<td>{{ ration.nom }}</td>
+						<td>{{ ration.matin }}</td>
+						<td>{{ ration.midi }}</td>
+						<td>{{ ration.soir }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+.display {
+  display:none;
+}
+
+.article {
+    height: auto;
+    background-color: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:1025px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:1025px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 5;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+   ul.topnav.responsive
+   {
+   }
+}
+
+
+
+body {
+	background-color: #edededed;
+}
+
+  nav
+{
+	text-align:center;
+	float: right;
+	padding-top: 13px;
+	padding-right: 80px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+nav ul
+{
+	list-style-type: none;
+}
+
+nav li 
+{
+	display: inline-block;	
+}
+
+nav ul li a 
+{
+	text-decoration: none;
+	color:#9c9c9c;
+	padding: 0 30px;
+	/*transition: color ease 1s;*/
+}
+
+nav ul li a:hover
+{
+	color: white;
+	width: 30px;
+}
+
+header
+{
+	font-family: 'Roboto';
+	width: 100%;
+	height:	70px;
+	background-color: #2f2f2f;
+	border: 1px solid black;
+	position: fixed;
+	z-index: 1;
+}
+
+/*.article {
+	border: 1px solid black;
+	margin-top : 2%;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	background-color: white;
+}*/
+
+.logo {
+	display: inline-block;
+	padding-left: 100px;
+	color: white;
+}
+
+#myCarousel {
+	width: 100%;
+}
+
+.item {
+	width: 500px; 
+}
+
+.content {
+	text-align: center;
+}
+
+.desc-wrapper {
+    -webkit-animation: feature-text-anim .75s ease-in-out;
+    animation: feature-text-anim .75s ease-in-out;
+    z-index: 100;
+    position: relative;
+    width: 100%;
+    max-width: 956px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 32px;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+}
+

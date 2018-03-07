@@ -1,0 +1,22 @@
+oc_user_homepage:
+    path:     /
+    defaults: { _controller: OCUserBundle:Default:index }
+
+
+oc_user_cavaliers:
+    path:     /profile/admin/cavaliers
+    defaults: { _controller: OCUserBundle:Cavaliers:cavaliers }
+    
+oc_user_cavalier:
+    path:     /profile/admin/cavalier/{id}
+    defaults: { _controller: OCUserBundle:Cavaliers:fiche }
+    requirements:
+        id: \d+
+
+oc_user_installation:
+    path:     /installation
+    defaults: { _controller: OCUserBundle:Installation:index }
+
+oc_user_tarif:
+    path:     /tarif
+    defaults: { _controller: OCUserBundle:Tarif:index }
